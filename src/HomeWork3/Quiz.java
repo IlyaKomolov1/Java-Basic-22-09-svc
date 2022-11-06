@@ -1,7 +1,8 @@
 package HomeWork3;
 
 public class Quiz {
-   private TestElement[] elements;
+    private final  UserOutput userOutput = new ConsoleUserOutput();
+   private final TestElement[] elements;
     private int correctCount = 0;
     private int wrongCount = 0;
 
@@ -14,7 +15,7 @@ public class Quiz {
                 wrongCount++;
             }
         }
-        System.out.println("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
+        userOutput.print("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
     }
 
     public Quiz(TestElement[] elements) {

@@ -2,24 +2,27 @@ package HomeWork3;
 
 import java.util.Scanner;
 
-public class UserOutputImpl implements UserOutput {
-    public int answer (String[] answerOptions,int correctAnswers) {
+public class ConsoleUserInput implements UserInput{
+    private final  UserOutput userOutput = new ConsoleUserOutput();
+
+    @Override
+    public int read(int maxValue) {
         int b = 0;
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
                 b = scanner.nextInt();
-                if (b <= answerOptions.length) {
+                if (b <= maxValue) {
                     break;
                 } else {
-                    System.out.println("такого числа нет");
+                    userOutput.print("такого числа нет");
                 }
             } else {
-                System.out.println("Введено не число");
+                userOutput.print("Введено не число");
                 scanner.next();
             }
         }
-        return correctAnswers;
+        return b;
     }
 }
