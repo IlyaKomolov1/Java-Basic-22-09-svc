@@ -1,22 +1,21 @@
 package HomeWork5;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Bank {
-    List<Client> clients = new ArrayList<Client>();
-    List<Account> accounts = new ArrayList<Account>();
+    Map<Account,Client> accountClientMap = new HashMap<>();
 
+    Map<Client,List<Account>> map = new HashMap<>();
     List<Account> getAccounts(Client client) {
-        for (Client s : clients) {
-            if (client.name.equals(s.name) && client.age == s.age) {
-                return s.accounts;
-            }
-        }
-        return null;
+
+        return map.get(client);
     }
 
     Client findClient(Account account) {
-        return null;
+
+        return accountClientMap.get(account);
     }
 }
