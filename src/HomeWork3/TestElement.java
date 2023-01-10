@@ -1,5 +1,7 @@
 package HomeWork3;
 
+import java.util.Arrays;
+
 public class TestElement {
     private final String question;
     private final String[]  answerOptions;
